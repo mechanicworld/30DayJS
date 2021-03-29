@@ -35,7 +35,7 @@
       
       }
 
-      function displayMathes() {
+      function displayMatches() {
         const matchArray = findMatches(this.value, cities);
         const html = matchArray
           .map((place) => {
@@ -63,8 +63,8 @@
       const searchInput = document.querySelector(".search");
       const suggestions = document.querySelector(".suggestions");
 
-      searchInput.addEventListener("change", displayMathes);
-      searchInput.addEventListener("keyup", displayMathes);
+      searchInput.addEventListener("change", displayMatches);
+      searchInput.addEventListener("keyup", displayMatches);
     </script>
   </body>
 </html>
