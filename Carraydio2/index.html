@@ -6,6 +6,10 @@
 </head>
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  
+  <input id="test" type="text">
+  <div id="showInput"></div>
+  
   <script>
     // ## Array Cardio Day 2
 
@@ -26,16 +30,50 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    const date = new Date()
+    const year = date.getFullYear()
+    const value = people.some(person => {
+      return (year - person.year) >= 19
+    })
+    console.log(value)
+    console.log({value})
+
     // Array.prototype.every() // is everyone 19 or older?
+    const olderThen = people.every(person => {
+      const year = (new Date()).getFullYear()
+      return (year - person.year) >= 19
+    })
+    console.log(olderThen)
+
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const comment = comments.find(comment => {
+      return comment.id === 823423
+    })
+    console.log(comment)
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
 
+    const indexOfComment = comments.findIndex(comment => comment.id === 823423)
+    console.log(indexOfComment)
+    console.log(comments)
+    comments.splice(indexOfComment, 1)
+    console.log(comments)
+    
+
+    //-----------------------------
+    const showInput = document.querySelector('#showInput')
+    const inputElement = document.querySelector('#test')
+    console.log(inputElement.text)
+    inputElement.addEventListener("keyup", (e) => {
+      console.log(e)
+      showInput.innerHTML = inputElement.value
+    })
+    
   </script>
 </body>
 </html>
